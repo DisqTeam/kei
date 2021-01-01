@@ -3,7 +3,7 @@ module.exports = {
         {
           name: "kei_api",
           script: "dist/src/index.js",
-          watch: true,
+          watch: false,
           env: {
             "NODE_ENV": "production",
           }
