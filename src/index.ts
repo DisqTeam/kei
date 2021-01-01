@@ -42,6 +42,9 @@ app.use( (err: Error, req: express.Request, res: express.Response, next: express
         return res.status(500).json({success: false, description: "A server-side error occured! ｡゜(｀Д´)゜｡"})
 })
 
+import KeiJobDeleteExpired from './jobs/KeiJobDeleteExpired';
+setTimeout(KeiJobDeleteExpired, 600000)
+
 app.listen(config.port, () => {
     console.log("Kei is now running on port " + config.port)
 })
