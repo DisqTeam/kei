@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100" height="100" src="https://disq.me/9oqWP.png">
+  <img width="100" height="100" src="https://disq.me/8r9k4.png">
   <br/>
   <b>Kei</b>
   <br/>
