@@ -15,7 +15,7 @@ export default async (): Promise<void> => {
     const allAudios = await Audios.find({})
     for (let i = 0; i < allAudios.length; i++) {
         const a: Audio = allAudios[i];
-        if(a.expires < Math.round(new Date().valueOf())){
+        if(a.expires < dayjs().unix()){
             console.log(`[KeiJobDeleteExpired] Deleted ${a.id}`)
             await Audios.findOneAndDelete({id: a.id})
 
