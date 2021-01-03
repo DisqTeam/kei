@@ -29,8 +29,10 @@ const upload = multer({
 
 import KeiAudioGet from './routes/KeiAudioGet';
 import KeiAudioNew from './routes/KeiAudioNew';
+import KeiStats from './routes/KeiStats';
 
 app.get('/', (req: express.Request, res: express.Response) => res.send("uwu"))
+app.get('/stats', (req: express.Request, res: express.Response) => KeiStats(req, res))
 app.get('/audio/get', (req: express.Request, res: express.Response) => KeiAudioGet(req, res))
 app.post('/audio/new', upload.single('audio_file'), (req: express.Request, res: express.Response) => KeiAudioNew(req, res))
 app.use( (err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
