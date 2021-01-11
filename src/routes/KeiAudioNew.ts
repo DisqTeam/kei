@@ -15,14 +15,18 @@ const KeiAudioNew = async (req: express.Request, res: express.Response): Promise
     req.body.title ? title = req.body.title.toString() : title = "Untitled Audio"
     req.body.description ? description = req.body.description.toString() : description = "A cool audio file uploaded by a cool person."
 
-    let uploaded = dayjs().unix()
-    let expires = dayjs().add(3, 'day').unix()
+    if(req.body.title.length > 20) return res.status(400).json({ success: false, description: "Description is over 20 characters"})
+    if(req.body.description.length > 90) return res.status(400).json({ success: false, description: "Description is over 90 characters"})
+
+    const uploaded = dayjs().unix()
+    const expires = dayjs().add(3, 'day').unix()
 
     const audioDocument = new Audio({
         id,
         unlisted: true,
         title,
         description,
+        ip: req.ip,
         uploaded,
         expires,
         filesize: req.file.size,

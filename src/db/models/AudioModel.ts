@@ -4,6 +4,7 @@ const audioSchema = new mongoose.Schema({
     id: String,
     unlisted: Boolean,
 
+    ip: String,
     uploaded: Number,
     expires: Number,
 
